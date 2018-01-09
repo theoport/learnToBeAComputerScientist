@@ -1,0 +1,3 @@
+# learnToBeAComputerScientist
+
+-> Go to wiki
