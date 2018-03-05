@@ -41,9 +41,18 @@ if has ("mouse")
 endif
 
   "----------------------------Vim Tips & Tricks:----------------------------
-  " |  Command       |  Usage                                                |
-  " |                |                                                       |
-  " |  ~             |  switch case                                          |
-  " |  %s//bar/g     |  replace each last searched-for word with bar         |
-  " |  \zs or \ze    |  in search, marks the start and end of pattern        |
-  " |  foo\(bar\)\@! |  pattern, matches any foo that is not followed by bar |
+  " | Command        | Usage                                                |
+  " |                |                                                      |
+  " | ~              | switch case of letter under cursor                   |
+  " | .              | repeats last command                                 |
+  " | %              | go to matching bracket for bracket under cursor      |
+  " | *              | search for word under cursor                         |
+  " | ctrl-n, ctrl-p | next/previous word completion                        |
+  " | ctrl-x ctrl-l  | line completion                                      |
+  " | !<command>     | executes <command> in shell and puts you there       |
+  " | .!<command>    | pastes output of <command> into current window       |
+  " | %TOhtml        | Creates HTML version of the current document         |
+  " | %s//bar/g      | replace each last searched-for word with bar         |
+  " | \zs or \ze     | in search, marks the start and end of pattern        |
+  " | foo\(bar\)\@!  | pattern, matches any foo that is not followed by bar |
+
