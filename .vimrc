@@ -28,7 +28,7 @@ map <Leader>t :YcmCompleter GetType <CR>
 map <Leader>f :YcmCompleter FixIt <CR>
 map <Leader>g :YcmCompleter GetDoc<CR>
 
-set background=dark
+set background=dark 
 set vb t_vb=
 set number
 set hlsearch
@@ -39,6 +39,40 @@ set autoindent
 if has ("mouse")
 	set mouse=a
 endif
+
+nnoremap <C-W>O :call MaximizeToggle()<CR>
+nnoremap <C-W>o :call MaximizeToggle()<CR>
+nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
+
+function! MaximizeToggle()
+  if exists("s:maximize_session")
+    exec "source " . s:maximize_session
+    call delete(s:maximize_session)
+    unlet s:maximize_session
+    let &hidden=s:maximize_hidden_save
+    unlet s:maximize_hidden_save
+    if (s:nerd == 1)
+      exec ":NERDTreeToggle <CR>"
+    endif
+    unlet s:nerd
+  else
+    if IsNerdTreeEnabled() 
+      exec ":NERDTreeToggle <CR>"
+      let s:nerd = 1
+    else 
+      let s:nerd = 0
+    endif
+    let s:maximize_hidden_save = &hidden
+    let s:maximize_session = tempname()
+    set hidden
+    exec "mksession! " . s:maximize_session
+    only
+  endif
+endfunction
+
+function! IsNerdTreeEnabled()
+    return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
+endfunction
 
   "----------------------------Vim Tips & Tricks:----------------------------
   " | Command        | Usage                                                |
@@ -55,4 +89,3 @@ endif
   " | %s//bar/g      | replace each last searched-for word with bar         |
   " | \zs or \ze     | in search, marks the start and end of pattern        |
   " | foo\(bar\)\@!  | pattern, matches any foo that is not followed by bar |
-
