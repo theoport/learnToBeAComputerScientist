@@ -81,6 +81,7 @@ endfunction
   " | .              | repeats last command                                 |
   " | %              | go to matching bracket for bracket under cursor      |
   " | *              | search for word under cursor                         |
+  " | =              | align indentation of block in visual mode            |
   " | ctrl-n, ctrl-p | next/previous word completion                        |
   " | ctrl-x ctrl-l  | line completion                                      |
   " | !<command>     | executes <command> in shell and puts you there       |
