@@ -17,6 +17,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'morhetz/gruvbox'
 Plugin 'godlygeek/tabular'
 Plugin 'tomlion/vim-solidity'
+"Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()
 filetype plugin indent on
@@ -24,6 +25,7 @@ filetype plugin indent on
 map tt :NERDTree <CR>
 map tg :NERDTreeToggle <CR>
 map tb :Tab /= <CR>
+:command F :echo expand('%:p')
 map <Leader>t :YcmCompleter GetType <CR>
 map <Leader>f :YcmCompleter FixIt <CR>
 map <Leader>g :YcmCompleter GetDoc<CR>
@@ -43,6 +45,7 @@ endif
 nnoremap <C-W>O :call MaximizeToggle()<CR>
 nnoremap <C-W>o :call MaximizeToggle()<CR>
 nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
+nnoremap gr :execute "noautocmd vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR> 
 
 function! MaximizeToggle()
   if exists("s:maximize_session")
